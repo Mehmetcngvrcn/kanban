@@ -1,0 +1,18 @@
+<input type="text" class="form-control {{input_class}}" placeholder="Board Name" [(ngModel)]="this.board_settings.name" required>
+<div class="my-4 row align-items-center m-0">
+    <div class="col">
+        Color :
+        <i *ngFor="let item of colors" class="fas fa-circle text-{{item.color}}" style="cursor: pointer;"
+            (click)="color_pick(item.color,item.text)"></i>
+    </div>
+    <div class="col">
+        <div class="float-end">
+            <div class="form-check form-switch">
+                <input class="form-check-input" [(ngModel)]="this.opacity" (change)="opacity_change()" type="checkbox"
+                    id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Only Border</label>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn float-end {{add_btn_color}}" (click)="add_board()">Add</button>

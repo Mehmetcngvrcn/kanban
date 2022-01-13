@@ -1,0 +1,18 @@
+proje günlük/haftalık yapılacaklar tarzı bir uygulama
+
+-ilk olarak merak ettiğim için api nasıl oluşturulur araştırdım
+-projeyi oluşturup header ve anasayfasini tasarladım
+-Add new board/history/edit-new card sayfalarını anasayfa üstünde açılır menu olarak ekledim
+-sürükle bırak olayı için araştırma yaptım cdk drag drop modülünü bulup projeye ekledim
+-board ve task-list sayfasını tasarladım
+-board ın ve tasklist in ayarları için genel servis oluşturdum 
+-popup servisi ile tasklist in kart ekleme ve düzenlenmesini ayarladım
+-history servisi ile tasklist sayfasına giden her id yi localstorge a kaydettim
+-denemek için json dosyaları oluşturdum
+-id si bulunmayan board lar için 404 sayfası oluşturdum
+-proje json dosyalarıyla düzgün çalışır hale geldikten sonra aynı json dosyalarını kullanarak api oluşturdum
+-api servis oluşturarak board ekleme çıkarma/tasklist kart güncelleme işlemlerini yaptım
+-veri tabanı için mysql kullanacakatım fakat ücretsiz bir hosting sitesi bulamadım 
+-göndermiş olduğunuz dökümanda mongo veri tabanını gördüm ve araştırdım
+-board ve tasklist şemaları oluşturup api yi veri tabanı ile çalışır hale getirdim
+-son olarak postman collection oluşturarak api sorgularını ekledim

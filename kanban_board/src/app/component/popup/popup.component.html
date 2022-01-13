@@ -1,0 +1,20 @@
+<div id="popup" *ngIf="this.popupService.popup" (click)="popup_close()">
+    <div class="popup card 
+    {{this.popupService.task_name=='Add New' ?
+    this.genelService.board_text_color[0]+' '+this.genelService.board_color[0]+' '+this.genelService.board_border_color:
+    this.genelService.board_text_color[1]+' '+this.genelService.board_color[1] }}"
+        (click)="$event.stopPropagation()">
+        <div class="card-header">{{this.popupService.task_name}}
+            <span class="float-end" style="cursor: pointer;">
+                <i class="far fa-trash-alt mx-2" (click)="delete()" *ngIf="this.popupService.edit_mode"></i>
+                <i class="fas fa-times" (click)="popup_close()"></i>
+            </span>
+        </div>
+        <div class="card-body">
+            <app-add-new *ngIf="this.popupService.task_name=='Add New'"></app-add-new>
+            <app-history *ngIf="this.popupService.task_name=='History'"></app-history>
+            <app-link *ngIf="this.popupService.task_name=='İD'"></app-link>
+            <app-edit-task *ngIf="this.popupService.task_list"></app-edit-task>
+        </div>
+    </div>
+</div>

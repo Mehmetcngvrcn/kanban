@@ -1,0 +1,35 @@
+<div id="header"
+  class="p-3 {{this.genelService.header_color[0]}} {{this.genelService.header_text_color[0]}} w-100 row m-0 align-items-center">
+  <div class="col-4 h5 m-0" [routerLink]="['/']" routerLinkActive="router-link-active"  style="cursor: pointer;">
+    {{this.genelService.header_title}}</div>
+  <div class="col-8 text-end row m-0 justify-content-end align-items-center" *ngIf="this.genelService.header">
+    <div class="col">
+      <button class="btn btn-dark" title="History" (click)="popup('History')" mat-raised-button matTooltip="History"
+        data-bs-toggle="tooltip" data-bs-placement="bottom">
+        <i class="fas fa-history"></i>
+      </button>
+      <button type="button" class="btn btn-dark mx-1" mat-raised-button matTooltip="Save id to clipboard"
+        data-bs-toggle="tooltip" data-bs-placement="bottom" [hidden]="!this.genelService.task_list.id"
+        (click)="copy_id()">
+        <i class="far fa-copy"></i>
+      </button>
+      <button class="btn btn-dark" (click)="board_center()" mat-raised-button matTooltip="Center the Board"
+        data-bs-toggle="tooltip" data-bs-placement="bottom">
+        <i class="fas fa-align-center"></i></button>
+    </div>
+    <div class="dropdown col-2 col-lg-1">
+      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        {{this.genelService.board_scale_write()}}%
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><span class="dropdown-item" *ngFor="let item of size" (click)="resize(item)">{{item}}%</span></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><input class="border-0 dropdown-item" type="number" name="" (change)="scale($event)" min="50" max="200"
+            value="{{this.genelService.board_scale_write()}}" id=""></li>
+      </ul>
+    </div>
+  </div>
+</div>

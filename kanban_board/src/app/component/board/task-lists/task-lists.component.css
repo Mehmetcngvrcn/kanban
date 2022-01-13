@@ -1,0 +1,15 @@
+.section-heading:hover .plus{
+    visibility: visible;
+}
+.plus{
+    visibility: hidden;
+}
+.fas{
+    cursor: pointer;
+}
+.list-group-item:hover .edit{
+    visibility: visible;
+}
+.edit{
+    visibility: hidden;
+}

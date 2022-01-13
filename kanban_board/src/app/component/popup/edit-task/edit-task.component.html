@@ -1,0 +1,12 @@
+<div class="list-group-item list-group-item-action list-group-item-{{this.popupService.card.color}} mb-3">
+    <input type="text" class="form-control border-0 m-0 p-0" style="background-color: transparent;"
+        [(ngModel)]="this.popupService.card.name">
+</div>
+<div class="row m-0 align-items-center">
+    <div class="col-8">
+        <i *ngFor="let item of colors" class="fas fa-circle text-{{item.color}}" style="cursor: pointer;"
+            (click)="color_pick(item.color)"></i>
+    </div>
+    <button class="col-4 btn float-end btn-outline-light"
+        (click)="save()">{{this.popupService.btn_name}}</button>
+</div>

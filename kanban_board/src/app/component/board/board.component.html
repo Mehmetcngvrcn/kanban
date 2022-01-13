@@ -1,0 +1,25 @@
+<div class="w-100 h-100" [hidden]="this.genelService.page_loading"
+    [style.transform]="'scale('+this.genelService._board_scale+')'">
+    <div id="board" style="overflow: hidden; width: 80%;"
+        class="card {{this.genelService.board_text_color[0]}} {{this.genelService.board_color[0]}} {{this.genelService.board_border_color}}"
+        [cdkDragFreeDragPosition]="this.genelService.dragPosition" (window:resize)="onResize()" cdkDrag>
+        <div class="card-header">
+            {{pencere}}
+            <span class="float-end" style="cursor: pointer;">
+                <i class="fas fa-spinner fa-spin mx-2" [hidden]="!loading"></i>
+                <i id="save" class="far fa-save mx-2" [hidden]="!this.genelService.task_list_change"
+                    (click)="save_board()"></i>
+                <i class="fas fa-times" [routerLink]="['/']" routerLinkActive="router-link-active"
+                    (click)="this.genelService.page_loading=true"></i>
+            </span>
+        </div>
+        <div class="card-body">
+            <div *ngIf="pencere=='404'">
+                <app-error></app-error>
+            </div>
+        </div>
+        <div *ngIf="board">
+            <app-task-lists></app-task-lists>
+        </div>
+    </div>
+</div>

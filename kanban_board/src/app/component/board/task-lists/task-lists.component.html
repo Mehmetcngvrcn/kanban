@@ -1,0 +1,59 @@
+<div class="row mx-1 mb-4">
+    <div class="col-md-3">
+        <div class="section-heading text-center mb-3">
+            Backlog
+            <span class="float-end plus" (click)="popup_card_add('Backlog')"><i class="fas fa-plus"></i></span>
+        </div>
+        <div cdkDropList #backlogList="cdkDropList" [cdkDropListData]="this.genelService.task_list.backlog"
+            [cdkDropListConnectedTo]="[doneList,inprogressList,todoList]" class="list-group" style="min-height: 200px;"
+            (cdkDropListDropped)="drop($event)">
+            <div class="list-group-item list-group-item-action list-group-item-{{item.color}}"
+                *ngFor="let item of this.genelService.task_list.backlog,let i=index" cdkDrag>
+                {{item.name}}
+                <span class="float-end edit" (click)="popup_card_set('Backlog',item,i)"><i class="fas fa-edit"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="section-heading text-center mb-3">
+            To Do
+            <span class="float-end plus" (click)="popup_card_add('To Do')"><i class="fas fa-plus"></i></span>
+        </div>
+        <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="this.genelService.task_list.todo"
+            [cdkDropListConnectedTo]="[doneList,inprogressList,backlogList]" class="list-group"
+            style="min-height: 200px;" (cdkDropListDropped)="drop($event)">
+            <div class="list-group-item list-group-item-action list-group-item-{{item.color}}"
+                *ngFor="let item of this.genelService.task_list.todo,let i=index" cdkDrag>{{item.name}}
+                <span class="float-end edit" (click)="popup_card_set('To Do',item,i)"><i class="fas fa-edit"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="section-heading text-center mb-3">
+            In Progress
+            <span class="float-end plus" (click)="popup_card_add('In Progress')"><i class="fas fa-plus"></i></span>
+        </div>
+        <div cdkDropList #inprogressList="cdkDropList" [cdkDropListData]="this.genelService.task_list.inprogress"
+            [cdkDropListConnectedTo]="[doneList,todoList,backlogList]" class="list-group" style="min-height: 200px;"
+            (cdkDropListDropped)="drop($event)">
+            <div class="list-group-item list-group-item-action list-group-item-{{item.color}}"
+                *ngFor="let item of this.genelService.task_list.inprogress,let i=index" cdkDrag>{{item.name}}
+                <span class="float-end edit" (click)="popup_card_set('In Progress',item,i)"><i class="fas fa-edit"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="section-heading text-center mb-3">
+            Done
+            <span class="float-end plus" (click)="popup_card_add('Done')"><i class="fas fa-plus"></i></span>
+        </div>
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="this.genelService.task_list.done"
+            [cdkDropListConnectedTo]="[inprogressList,todoList,backlogList]" class="list-group"
+            style="min-height: 200px;" (cdkDropListDropped)="drop($event)">
+            <div class="list-group-item list-group-item-action list-group-item-{{item.color}}"
+                *ngFor="let item of this.genelService.task_list.done,let i=index" cdkDrag>{{item.name}}
+                <span class="float-end edit" (click)="popup_card_set('done',item,i)"><i class="fas fa-edit"></i></span>
+            </div>
+        </div>
+    </div>
+</div>

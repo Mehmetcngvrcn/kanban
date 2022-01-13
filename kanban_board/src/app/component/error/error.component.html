@@ -1,0 +1,12 @@
+<div style="position: absolute; top: 50%;left: 50%; transform: translate(-50%,-50%);">
+    <div class="text-muted text-center">
+        <div *ngIf="error==''">
+            <h1>OOPS!</h1>
+            Server Error
+        </div>
+        <div *ngIf="error=='404'">
+            <h1>404</h1>
+            Not Found
+        </div>
+    </div>
+</div>
