@@ -10,3 +10,5 @@ angular için
 npm start
 
 yazıp çalıştırın
+
+test
